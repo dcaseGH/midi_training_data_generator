@@ -1,10 +1,15 @@
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from src.tabular_data_prep import tabular_data_generator
+from src.tabular_data_prep import tabular_data_generator, \
+                                  displacement_data_generator_chords, \
+                                  displacement_data_generator_chords2
 
 # 1. Prepare your data (X = integer features, y = target)
-features, labels = tabular_data_generator('tabulated_chords.csv')
+#features, labels = tabular_data_generator('tabulated_chords.csv')
+#features, labels = displacement_data_generator_chords('tabulated_chords.csv')
+features, labels = displacement_data_generator_chords2('tabulated_chords.csv')
+
 X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2)
 
 # Define early stopping in the constructor

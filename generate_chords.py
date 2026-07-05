@@ -11,7 +11,7 @@ from src.midi_csv_conversion import csv_to_midi, csv_string_to_midi, midi_to_csv
 from src.melodies import generate_complete_list_melodies
 
 # Input data
-number_sequences = 800
+number_sequences = 900
 all_chords = []
 my_root = 58
 my_chord_max_interval = [5,5,5]

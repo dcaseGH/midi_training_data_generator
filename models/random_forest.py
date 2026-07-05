@@ -1,9 +1,12 @@
-from src.tabular_data_prep import tabular_data_generator
+from src.tabular_data_prep import tabular_data_generator, displacement_data_generator_chords, \
+                                  displacement_data_generator_chords2
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.inspection import permutation_importance
-
+import joblib
 
 features, labels = tabular_data_generator('tabulated_chords.csv')
+#features, labels = displacement_data_generator_chords('tabulated_chords.csv')
+#features, labels = displacement_data_generator_chords2('tabulated_chords.csv')
 
 rf = RandomForestClassifier(
     n_estimators=200,
@@ -26,3 +29,9 @@ for i, score in enumerate(importance_scores):
 
 #Total of importance scores is 1
 # suggests root note may be less important, and final chord is more important?
+
+if False:
+    # Save the model to a file
+    joblib.dump(rf, 'random_forest_model_1.joblib')
+# predict new points
+#new_data = glob.glob()
